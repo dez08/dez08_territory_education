@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Курсы, дополнительное образование">
+    <meta name="keywords" content="Программирование, курсы робототехники, английский язык, подготовка к ЕГЭ и ОГЭ, подготовка к школе">
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=f9905b60-a536-49b7-9470-c6f0f9a97777&lang=ru_RU" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <title>Контакты</title>
+    
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="header__container">
+                <div class="logo">Территория образования</div>
+                <nav class="header__item">
+                    <a href="index.html" class="header__link">Главная</a>
+                    <a href="about.html" class="header__link">О нас</a>
+                    <a href="contact.html" class="header__link">Контакты</a>
+                </nav>
+            </div>
+            <div class="hero">
+                <div class="hero__container">
+                    <h1 class="hero__title">Центр дополнительного образования</h1>
+                    <p class="hero__text">Запишитесь на бесплатное занятие </p>
+                    <a href="#send-request" class="hero__link">Записаться </a>
+                </div>
+            </div>
+        </header>
+        <main class="main">
+            <div class="about-us">
+                <div class="about-us__container">
+                    <div class="about-us__header">
+                        <h2 class="about-us__title">Контакты</h2>
+                        <p class="about-us__text"><b>Наши контакты:</b> <br><span itemprop="tel">8 (800) 600-18-43</span></p>
+                        <p class="about-us__text"><b>Адреса:</b> <br>ул. Сергея Лазо, 23, 3 этаж, кабинет 36 (левый
+                            вход). Телефон: <span itemprop="tel">8 (961)-888-80-18</span> <br><br>пр-т Фрунзе, 103Д, БЦ "Красное Знамя", кабинет
+                            708. Телефон: <span itemprop="tel">8 (961)-888-80-18</span><br><br>ул. Карла Ильмера, 10/1, второй этаж
+                            Телефон: <span itemprop="tel">8 (961)-888-85-28</span></p>
+
+                        <p class="about-us__text"><b>Режим работы:</b> <br>Ежедневно 9:00-21:00</p>
+                        <p class="about-us__text"><b>Ждем вас и ваших детей в наших центрах!</b></p>
+                    </div>
+                    <div id="map" style=""></div>
+                </div>
+            </div>
+        </main>
+        <footer class="footer">
+            <div class="footer__container">
+                <div class="footer__make">
+                    <h2 class="footer__lable">Запишитесь на бесплатное занятие</h2>
+                    <p class="footer__text">Наш менеджер свяжется с вами в ближайшее время</p>
+                    <div class="footer__form">
+                        <form action="" id="send-request">
+                            <input class="footer__input" type="text" placeholder="Введите адрес электронной почты">
+                            <a class="footer__btn" href="mailto:moderator@toster.ru">Записаться</a>
+                        </form>
+                    </div>
+                </div>
+                <div class="footer__body">
+                    <div class="logo">Теритоия образования</div>
+                    <ul class="footer__items">
+                        <li class="footer__item"><a href="index.html">Главная</a></li>
+                        <li class="footer__item"><a href="about.html">О нас</a></li>
+                        <li class="footer__item"><a href="contact.html">Контакты</a></li>
+                        <li>|</li>
+                        <li class="footer__item">Сайт создан для курсовой работы</li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script defer="">
+        function init() {
+            var myMap = new ymaps.Map("map", {
+                center: [],
+                zoom: 15
+            }, {
+                searchControlProvider: 'yandex#search'
+            });
+
+            myMap.geoObjects
+
+                .add(new ymaps.Placemark([55.773418, 37.650325], {
+                    balloonContent: 'Салон красоты на Комсомольской'
+                }, {
+                    preset: 'islands#redIcon',
+                    iconColor: '#cd0506'
+                }))
+            myMap.behaviors.disable('scrollZoom');
+
+            myMap.setBounds(myMap.geoObjects.getBounds(), {
+                checkZoomRange: true,
+                zoomMargin: 9
+            });
+        }
+        ymaps.ready(init);
+    </script>
+</body>
+
+</html>
